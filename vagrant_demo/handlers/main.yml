@@ -1,0 +1,7 @@
+---
+# handlers file for vagrant_demo
+- name: Reload Firewall
+  systemd:
+    name: firewalld
+    state: reloaded
+  become: true
