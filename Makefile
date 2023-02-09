@@ -21,3 +21,26 @@ init_docker:
 init_vagrant:
 	molecule init role acme.vagrant_demo --driver-name vagrant --verifier-name testinfra  
 
+
+
+# Inside each role
+show_steps:
+	molecule matrix -s default test
+
+create:
+	molecule create
+
+list:
+	molecule list
+
+converge:
+	molecule converge
+
+login:
+	molecule login
+
+destroy:
+	molecule destroy
+
+test:
+	molecule test
