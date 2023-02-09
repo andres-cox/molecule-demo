@@ -1,0 +1,29 @@
+---
+# tasks file for docker_demo
+- name: Install Httpd
+  package:
+    name: httpd
+    state: present
+
+- name: Install Git
+  yum:
+    name: git
+    state: present
+
+- name: Download repo from git
+  git:
+    repo: https://github.com/andres-cox/SPA-designs.git
+    dest: /var/www/html/demo
+
+- name: Move content to correct Directory
+  copy: 
+    src: /var/www/html/demo/restaurant/
+    dest: /var/www/html/
+    remote_src: true
+
+
+- name: Start Service
+  service:
+    name: httpd
+    state: started
+    enabled: true
